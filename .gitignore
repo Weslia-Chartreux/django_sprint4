@@ -151,3 +151,5 @@ media/
 sent_emails/
 
 .venv
+
+.venv1
