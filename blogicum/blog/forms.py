@@ -14,11 +14,21 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        exclude = ('author',)
+        exclude = ('author', 'created_at')
         widgets = {
             'pub_date': forms.DateTimeInput(
                 format='%Y-%m-%dT%H:%M', attrs={'type': 'datetime-local'}
+            ),
+            'is_published': forms.CheckboxInput(
+                attrs={'class': 'form-check-input'}
             )
+        }
+
+        labels = {
+            'is_published': 'Опубликовать пост'
+        }
+        help_texts = {
+            'is_published': 'Снимите галочку, чтобы скрыть публикацию'
         }
 
 
